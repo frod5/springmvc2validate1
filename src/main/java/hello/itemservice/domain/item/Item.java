@@ -2,12 +2,14 @@ package hello.itemservice.domain.item;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.ScriptAssert;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
+//@ScriptAssert(lang="javascript",script = "_this.price * _this.quantity >= 10000")  // 오브젝트 오류 확인. 되도록이면 이런 오브젝트 오류는 직접 자바코드로 하는것이 낫다.
 public class Item {
 
     private Long id;
