@@ -16,7 +16,7 @@ public class Item {
 
     @NotNull
     @Range(min = 1000, max = 1000000)
-    private Integer price;
+    private Integer price;   //typeMismatch가 되면 validation 검증하지 않는다.
 
     @NotNull
     @Max(9999)
