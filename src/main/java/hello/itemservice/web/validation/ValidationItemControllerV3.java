@@ -47,6 +47,13 @@ public class ValidationItemControllerV3 {
         //검증에 실패하면 다시 입력 폽으로
         if(bindingResult.hasErrors()) {
             log.info("errors ::> {}",bindingResult);
+            //Field error in object 'item' on field 'itemName': rejected value [ ];
+            // codes [NotBlank.item.itemName,NotBlank.itemName,NotBlank.java.lang.String,NotBlank];   -> 어노테이션 명으로 messageResolver를 통해 메시지 코드들이 순서대로 생성
+            // arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [item.itemName,itemName];
+            // arguments []; default message [itemName]];
+            // default message [공백일 수 없습니다]
+            // error.properties에 해당 메시지 코드를 선언한다면 메시지 문구도 바꿀 수 있다.
+
             return "validation/v3/addForm";
         }
 
